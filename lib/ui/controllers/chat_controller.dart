@@ -105,6 +105,11 @@ class ChatController extends GetxController {
     try {
       // TODO
       // databaseReference - child('msg') - child(key) - push() - set({'senderUid': senderUid, 'msg': msg})
+      databaseReference
+          .child('msg')
+          .child(key)
+          .push()
+          .set({'senderUid': senderUid, 'msg': msg});
     } catch (error) {
       logError(error);
       return Future.error(error);
